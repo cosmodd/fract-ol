@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:12:09 by mrattez           #+#    #+#             */
-/*   Updated: 2021/11/10 11:25:52 by mrattez          ###   ########.fr       */
+/*   Updated: 2021/11/10 13:04:29 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_workspace	*init_workspace(int width, int height)
 
 int	free_workspace(t_workspace *workspace)
 {
-	if (workspace->fractal)
+	if (workspace && workspace->fractal)
 		free(workspace->fractal);
 	if (workspace)
 		free(workspace);

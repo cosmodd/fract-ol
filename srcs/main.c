@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 19:38:53 by mrattez           #+#    #+#             */
-/*   Updated: 2021/11/10 12:22:25 by mrattez          ###   ########.fr       */
+/*   Updated: 2021/11/10 13:01:48 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 {
 	t_workspace	*workspace;
 
+	workspace = NULL;
 	if (ac < 2)
 		argument_error(workspace);
 	workspace = init_workspace(WIDTH, HEIGHT);
