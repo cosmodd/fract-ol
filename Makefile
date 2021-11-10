@@ -1,6 +1,7 @@
 # SOURCES
 SRCS = srcs/color_utils.c \
 		srcs/drawer.c \
+		srcs/errors.c \
 		srcs/fractals.c \
 		srcs/hooks.c \
 		srcs/image.c \
