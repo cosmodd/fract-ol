@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 10:39:06 by mrattez           #+#    #+#             */
-/*   Updated: 2021/11/10 11:35:20 by mrattez          ###   ########.fr       */
+/*   Updated: 2021/11/10 13:04:46 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	malloc_error(t_workspace *ws)
 void	argument_error(t_workspace *ws)
 {
 	printf("You have to specify an argument !\n%s\n",
-		"Usage: ./fractol <mandelbrot|julia|burningship>\n");
+		"Usage: ./fractol <mandelbrot|julia|burningship>");
 	free_workspace(ws);
 	exit(1);
 }
