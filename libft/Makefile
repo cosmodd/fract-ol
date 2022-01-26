@@ -57,6 +57,7 @@ NAME=libft.a
 
 $(NAME):$(OBJECTS)
 	@$(AR) srcu $@ $(OBJECTS)
+	@echo "\033[1m\033[48;2;0;194;60m\033[38;2;255;255;255m ✓ libft compiled \033[0m"
 
 all:$(NAME)
 

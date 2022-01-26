@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:39:06 by mrattez           #+#    #+#             */
-/*   Updated: 2021/11/10 13:04:46 by mrattez          ###   ########.fr       */
+/*   Created: 2022/01/26 10:23:03 by mrattez           #+#    #+#             */
+/*   Updated: 2022/01/26 10:23:15 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-void	malloc_error(t_workspace *ws)
-{
-	printf("Couldn't allocate memory !");
-	free_workspace(ws);
-	exit(1);
-}
+int	from_rgb(int r, int g, int b);
 
-void	argument_error(t_workspace *ws)
-{
-	printf("You have to specify an argument !\n%s\n",
-		"Usage: ./fractol <mandelbrot|julia|burningship>");
-	free_workspace(ws);
-	exit(1);
-}
+#endif

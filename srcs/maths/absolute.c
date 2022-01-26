@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   absolute.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 09:45:08 by mrattez           #+#    #+#             */
-/*   Updated: 2021/11/09 14:34:00 by mrattez          ###   ########.fr       */
+/*   Created: 2022/01/26 10:56:40 by mrattez           #+#    #+#             */
+/*   Updated: 2022/01/26 11:02:51 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "maths.h"
 
-void	image_pixel_put(t_data data, int x, int y, int color)
+int	abs_d(int value)
 {
-	char	*dst;
+	return (value * ((value >= 0) * 2 - 1));
+}
 
-	dst = data.addr + (y * data.line_length + x * (data.bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+float	abs_f(float value)
+{
+	return (value * ((value >= 0) * 2 - 1));
+}
+
+double	abs_fd(double value)
+{
+	return (value * ((value >= 0) * 2 - 1));
 }
