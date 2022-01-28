@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 08:37:58 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/26 15:59:01 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 08:18:39 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 # include "maths.h"
 
 # ifndef WIDTH
-#  define WIDTH 1920
+#  define WIDTH 1080
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 980
+#  define HEIGHT 680
 # endif
 
 # ifndef MAX_ITER
@@ -36,8 +36,9 @@
 
 # define LMB 1
 # define RMB 2
-# define MSD 4
-# define MSU 5
+# define MMB 3
+# define MSU 4
+# define MSD 5
 
 typedef struct s_env
 {
@@ -48,17 +49,25 @@ typedef struct s_env
 	int		height;
 	int		max_iter;
 	int		res;
+	int		update_mouse;
 	double	scale_x;
 	double	scale_y;
 	double	offset_x;
 	double	offset_y;
+	double	mmx;
+	double	mmy;
 	double	rot;
+	int		(*f)(struct s_env *, t_complex);
 }	t_env;
 
-int		validate_args(int ac, char **av);
+void	reset(t_env *env);
+void	validate_args(t_env *env, int ac, char **av);
 void	init_events(t_env *env);
 int		iter_color(t_env *env, int iter);
-int		mandelbrot(t_env *env, t_complex c);
 void	draw(t_env *env);
+
+int		mandelbrot(t_env *env, t_complex c);
+int		julia(t_env *env, t_complex z);
+int		burningship(t_env *env, t_complex c);
 
 #endif

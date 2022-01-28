@@ -16,8 +16,8 @@ CFLAGS	= -Wall -Werror -Wextra -O3
 INCS	= -Iincludes -Iminilibx -Ilibft
 LIBS	= -Lminilibx -lmlx -Llibft -lft
 OPTS	= -framework OpenGL -framework AppKit
-C_OPTS	= $(CFLAGS) $(INCS)
-BIN_OPT	= $(LIBS) $(OPTS) $(INCS)
+C_OPTS	= $(CFLAGS) $(INCS) -g
+BIN_OPT	= $(LIBS) $(OPTS) $(INCS) -g
 
 # OTHER
 NAME	= fractol

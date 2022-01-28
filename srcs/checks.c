@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:45:15 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/26 15:23:22 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 08:21:48 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,22 @@ void	print_usage(void)
 	printf("\033[1;34mburningship\033[0m>");
 }
 
-int	validate_args(int ac, char **av)
+void	validate_args(t_env *env, int ac, char **av)
 {
-	(void) av;
 	if (ac < 2)
 	{
 		print_usage();
 		exit(0);
 	}
 	if (!ft_strcmp(av[1], "mandelbrot"))
-		return (0);
-	if (!ft_strcmp(av[2], "julia"))
-		return (0);
-	if (!ft_strcmp(av[3], "burningship"))
-		return (0);
-	print_usage();
-	exit(0);
+		env->f = &mandelbrot;
+	else if (!ft_strcmp(av[1], "julia"))
+		env->f = &julia;
+	else if (!ft_strcmp(av[1], "burningship"))
+		env->f = &burningship;
+	else
+	{
+		print_usage();
+		exit(0);
+	}
 }

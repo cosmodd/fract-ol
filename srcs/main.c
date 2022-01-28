@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 19:38:53 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/26 16:01:37 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 08:14:56 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,25 @@ void	init_env(t_env *env)
 	env->max_iter = MAX_ITER;
 	env->window = mlx_new_window(env->mlx, env->width, env->height, "fractol");
 	env->frame = new_image(env->mlx, env->width, env->height);
-	env->scale_x = env->width / 400;
-	env->scale_y = env->height / 400;
+	env->scale_x = env->width / 400.;
+	env->scale_y = env->height / 400.;
 	env->offset_x = 0;
 	env->offset_y = 0;
+	env->mmx = 0;
+	env->mmy = 0;
 	env->res = 2;
 	env->rot = 0;
+	env->update_mouse = 1;
 	mlx_do_key_autorepeaton(env->mlx);
+}
+
+void	reset(t_env *env)
+{
+	env->scale_x = env->width / 400.;
+	env->scale_y = env->height / 400.;
+	env->offset_x = 0;
+	env->offset_y = 0;
+	env->rot = 0;
 }
 
 void	rotate(double *x, double *y, double angle)
@@ -60,7 +72,7 @@ void	draw(t_env *env)
 			mrx = range_fd(x, (t_rfd){0, env->width}, x_range);
 			mry = range_fd(y, (t_rfd){0, env->height}, y_range);
 			rotate(&mrx, &mry, env->rot);
-			i = mandelbrot(env, (t_complex){mrx, mry});
+			i = env->f(env, (t_complex){mrx, mry});
 			// i = mandelbrot(env, (t_complex){\
 			// 	range_fd(x, (t_rfd){0, env->width}, x_range), \
 			// 	range_fd(y, (t_rfd){0, env->height}, y_range)});
@@ -80,7 +92,7 @@ int	main(int ac, char **av)
 {
 	t_env	env;
 
-	validate_args(ac, av);
+	validate_args(&env, ac, av);
 	init_env(&env);
 	init_events(&env);
 	draw(&env);
