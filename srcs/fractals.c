@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:09:21 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/28 11:19:21 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 15:56:47 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ int	beryl(t_env *env, t_complex x)
 		tx = x;
 		ty = y;
 		y = (t_complex){tx.re + ty.re, tx.im + ty.im};
-		x = (t_complex){tx.re * ty.re - tx.im * ty.im, tx.re * ty.im + tx.im * ty.re};
+		x = (t_complex){tx.re * ty.re - tx.im * ty.im, \
+						tx.re * ty.im + tx.im * ty.re};
 		i++;
 	}
 	return (i);

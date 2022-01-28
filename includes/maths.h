@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 10:24:22 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/26 11:08:22 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 16:01:08 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ double	range_fd(double value, t_rfd from, t_rfd to);
 int		abs_d(int value);
 float	abs_f(float value);
 double	abs_fd(double value);
+
+void	rotate(double *x, double *y, double angle);
 
 #endif

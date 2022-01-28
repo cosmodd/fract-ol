@@ -6,6 +6,7 @@ SRCS	= srcs/checks.c \
 		srcs/main.c \
 		srcs/maths/absolute.c \
 		srcs/maths/range.c \
+		srcs/maths/rotate.c \
 		srcs/xutils.c \
 
 OBJS	= $(SRCS:.c=.o)
@@ -16,8 +17,8 @@ CFLAGS	= -Wall -Werror -Wextra -O3
 INCS	= -Iincludes -Iminilibx -Ilibft
 LIBS	= -Lminilibx -lmlx -Llibft -lft
 OPTS	= -framework OpenGL -framework AppKit
-C_OPTS	= $(CFLAGS) $(INCS) -g
-BIN_OPT	= $(LIBS) $(OPTS) $(INCS) -g
+C_OPTS	= $(CFLAGS) $(INCS)
+BIN_OPT	= $(LIBS) $(OPTS) $(INCS)
 
 # OTHER
 NAME	= fractol

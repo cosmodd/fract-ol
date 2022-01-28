@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:24:55 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/28 13:12:50 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 15:59:53 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,19 @@ int	mouse_handler(int button, int x, int y, t_env *env)
 	{
 		env->offset_x += range_fd(x, (t_rfd){0, env->width}, x_range);
 		env->offset_y += range_fd(y, (t_rfd){0, env->height}, y_range);
-		draw(env);
 	}
 	if (button == MSU || button == MSD)
 	{
-		mx = range_fd(x, (t_rfd){0, env->width}, x_range) * ((button == MSU) * 2 - 1);
-		my = range_fd(y, (t_rfd){0, env->height}, y_range) * ((button == MSU) * 2 - 1);
+		mx = range_fd(x, (t_rfd){0, env->width}, x_range) \
+					* ((button == MSU) * 2 - 1);
+		my = range_fd(y, (t_rfd){0, env->height}, y_range) \
+					* ((button == MSU) * 2 - 1);
 		env->offset_x += mx / 10;
 		env->offset_y += my / 10;
 		env->scale_x *= 0.9 + ((button == MSD) * 0.2);
 		env->scale_y *= 0.9 + ((button == MSD) * 0.2);
-		draw(env);
 	}
+	draw(env);
 	return (0);
 }
 

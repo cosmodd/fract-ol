@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 19:38:53 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/28 10:35:59 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 16:00:42 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_env(t_env *env)
 	env->offset_y = 0;
 	env->mmx = 0;
 	env->mmy = 0;
-	env->res = 2;
+	env->res = 1;
 	env->rot = 0;
 	env->update_mouse = 1;
 	mlx_do_key_autorepeaton(env->mlx);
@@ -39,15 +39,6 @@ void	reset(t_env *env)
 	env->offset_x = 0;
 	env->offset_y = 0;
 	env->rot = 0;
-}
-
-void	rotate(double *x, double *y, double angle)
-{
-	double	tmp;
-
-	tmp = *x;
-	*x = *x * cos(angle) - *y * sin(angle);
-	*y = tmp * sin(angle) + *y * cos(angle);
 }
 
 void	draw(t_env *env)
@@ -73,13 +64,6 @@ void	draw(t_env *env)
 			mry = range_fd(y, (t_rfd){0, env->height}, y_range);
 			rotate(&mrx, &mry, env->rot);
 			i = env->f(env, (t_complex){mrx, mry});
-			// i = mandelbrot(env, (t_complex){\
-			// 	range_fd(x, (t_rfd){0, env->width}, x_range), \
-			// 	range_fd(y, (t_rfd){0, env->height}, y_range)});
-			// if (x == env->width / 2 || y == env->height / 2)
-			// 	put_pixel(env->frame, x, y, ~iter_color(env, i) & 0xFFFFFF);
-			// else
-			// 	put_pixel(env->frame, x, y, iter_color(env, i));
 			rect(env->frame, (t_rect){x, y, env->res, env->res}, iter_color(env, i));
 			x += env->res;
 		}
