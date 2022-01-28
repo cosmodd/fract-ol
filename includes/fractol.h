@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 08:37:58 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/28 08:18:39 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 11:24:43 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void	draw(t_env *env);
 int		mandelbrot(t_env *env, t_complex c);
 int		julia(t_env *env, t_complex z);
 int		burningship(t_env *env, t_complex c);
+int		beryl(t_env *env, t_complex x);
 
 #endif

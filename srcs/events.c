@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 11:24:55 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/28 07:58:10 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/01/28 13:12:50 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	key_press(int keycode, t_env *env)
 		env->rot += (M_PI / 90) * ((keycode == EQUAL) * 2 - 1);
 	if (keycode == SPACE)
 		env->update_mouse = !env->update_mouse;
-	if (keycode == DIGIT_0)
+	if (keycode == DIGIT_0 || keycode == NUMPAD_0)
 		reset(env);
 	draw(env);
 	return (0);
@@ -64,7 +64,7 @@ int	mouse_move(int x, int y, t_env *env)
 {
 	t_rfd	x_range;
 	t_rfd	y_range;
-	
+
 	if (!env->update_mouse)
 		return (0);
 	x_range = (t_rfd){-env->scale_x, env->scale_x};
