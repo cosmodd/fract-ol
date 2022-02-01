@@ -1,6 +1,7 @@
 # SOURCES
 SRCS	= srcs/checks.c \
 		srcs/colors.c \
+		srcs/draw.c \
 		srcs/events.c \
 		srcs/fractals.c \
 		srcs/main.c \
@@ -14,7 +15,7 @@ OBJS	= $(SRCS:.c=.o)
 # COMPILATION
 CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra -O3
-INCS	= -Iincludes -Iminilibx -Ilibft
+INCS	= -Iincludes -Iminilibx -Ilibft/includes
 LIBS	= -Lminilibx -lmlx -Llibft -lft
 OPTS	= -framework OpenGL -framework AppKit
 C_OPTS	= $(CFLAGS) $(INCS)

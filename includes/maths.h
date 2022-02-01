@@ -6,12 +6,14 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 10:24:22 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/28 16:01:08 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/02/01 10:07:12 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATHS_H
 # define MATHS_H
+
+# include <math.h>
 
 typedef struct s_range_d
 {

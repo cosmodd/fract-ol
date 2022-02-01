@@ -6,7 +6,7 @@
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:45:15 by mrattez           #+#    #+#             */
-/*   Updated: 2022/01/28 10:43:24 by mrattez          ###   ########.fr       */
+/*   Updated: 2022/02/01 10:23:36 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	validate_args(t_env *env, int ac, char **av)
 		print_usage();
 		exit(0);
 	}
-	if (!ft_strcmp(av[1], "mandelbrot"))
+	if (!ft_strncmp(av[1], "mandelbrot", 11))
 		env->f = &mandelbrot;
-	else if (!ft_strcmp(av[1], "julia"))
+	else if (!ft_strncmp(av[1], "julia", 6))
 		env->f = &julia;
-	else if (!ft_strcmp(av[1], "burningship"))
+	else if (!ft_strncmp(av[1], "burningship", 12))
 		env->f = &burningship;
-	else if (!ft_strcmp(av[1], "beryl"))
+	else if (!ft_strncmp(av[1], "beryl", 6))
 		env->f = &beryl;
 	else
 	{

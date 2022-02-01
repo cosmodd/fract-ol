@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrattez <mrattez@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 15:12:49 by mrattez           #+#    #+#             */
-/*   Updated: 2021/11/09 16:04:05 by mrattez          ###   ########.fr       */
+/*   Created: 2021/12/01 14:41:18 by mrattez           #+#    #+#             */
+/*   Updated: 2021/12/01 14:43:32 by mrattez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+long	ft_atol(const char *str)
 {
-	unsigned char	a;
-	unsigned char	b;
-	size_t			i;
+	int		sign;
+	long	num;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	sign = 1;
+	num = 0;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		a = s1[i];
-		b = s2[i];
-		if (a != b)
-			return (a - b);
-		i++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (0);
+	while (*str >= '0' && *str <= '9')
+		num = num * 10 + (*str++) - '0';
+	return (sign * num);
 }
